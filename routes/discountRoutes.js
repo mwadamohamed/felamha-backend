@@ -5,7 +5,7 @@ const { protect } = require('../middleware/authMiddleware');
 const { adminProtect } = require('../middleware/adminMiddleware');
 
 router.get('/', discountController.getAllDiscounts);
-router.post('/', adminProtect, discountController.addDiscount);
-router.delete('/:id', adminProtect, discountController.deleteDiscount);
+router.post('/', protect,adminProtect, discountController.addDiscount);
+router.delete('/:id',protect, adminProtect, discountController.deleteDiscount);
 
 module.exports = router;
