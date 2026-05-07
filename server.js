@@ -11,3 +11,7 @@ const app = express();
 require('dotenv').config();
 
 app.use(express.json()); 
+
+const profileRoutes = require('./routes/profileRoutes');
+
+app.use('/', profileRoutes);
