@@ -1,16 +1,8 @@
-const express = require("express");
+const express = require('express');
 const router = express.Router();
-const placeController = require("../controllers/placeController");
+const { getAllPlaces, getSinglePlace } = require('../controllers/placeController');
 
-// ================== PUBLIC ROUTES ==================
-router.get("/", placeController.getAllPlaces);
-router.get("/:id", placeController.getSinglePlace);
-
-// ================== ADMIN ROUTES ==================
-// هنضيف adminMiddleware هنا لما فبرونيا تخلص
-// مثال: router.post("/", adminMiddleware, placeController.addPlace);
-router.post("/", placeController.addPlace);
-router.put("/:id", placeController.editPlace);
-router.delete("/:id", placeController.deletePlace);
+router.get('/',          getAllPlaces);
+router.get('/:placeId',  getSinglePlace);
 
 module.exports = router;
