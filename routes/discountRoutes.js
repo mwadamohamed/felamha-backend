@@ -1,11 +1,10 @@
 const express = require('express');
 const router = express.Router();
-const discountController = require('../controllers/discountController');
-const { protect } = require('../middleware/authMiddleware');
-const { adminProtect } = require('../middleware/adminMiddleware');
+const { getAllDiscounts, addDiscount, deleteDiscount } = require('../controllers/discountController');
+const adminMiddleware = require('../middleware/adminMiddleware');
 
-router.get('/', discountController.getAllDiscounts);
-router.post('/', protect,adminProtect, discountController.addDiscount);
-router.delete('/:id',protect, adminProtect, discountController.deleteDiscount);
+router.get('/',                getAllDiscounts);
+router.post('/',               adminMiddleware, addDiscount);
+router.delete('/:discountId',  adminMiddleware, deleteDiscount);
 
 module.exports = router;
