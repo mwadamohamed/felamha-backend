@@ -12,6 +12,15 @@ const getAllReviews = async (req, res) => {
     }
 };
 
+const getReviewsByPlace = async (req, res) => {
+    try {
+        const reviews = await Review.find({ placeId: req.params.placeId })
+            .populate('userId', 'fullname photo');
+        res.json(reviews);
+    } catch (err) {
+        res.status(400).json({ error: err.message });
+    }
+};
 // ================== DELETE REVIEW ==================
 const deleteReview = async (req, res) => {
     try {
@@ -23,4 +32,5 @@ const deleteReview = async (req, res) => {
     }
 };
 
-module.exports = { getAllReviews, deleteReview };
+module.exports = { getAllReviews, getReviewsByPlace, deleteReview };
+ 
