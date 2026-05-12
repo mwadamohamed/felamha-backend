@@ -46,7 +46,7 @@ exports.login = async (req, res) => {
     const { email, password } = req.body;
 
     // check user
-    const user = await User.findOne({ email });
+    const user = await User.findOne({ email }).select("+password"); //trial
     if (!user) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
@@ -56,7 +56,7 @@ exports.login = async (req, res) => {
     if (!isMatch) {
       return res.status(400).json({ message: "Invalid email or password" });
     }
-
+     user.password = undefined; //trial removes password from response
     res.status(200).json({
       message: "Login successful",
       token: generateToken(user._id),
