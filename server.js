@@ -1,11 +1,11 @@
-
 const app =require('./app');
 const connectDB =require('./config/db');
 connectDB();
-app.listen(8000, () => {
+app.listen(8000,'192.168.1.15', () => {
     console.log("Server is ruuning on port 7000!");
 })
-const express = require('express');
+
+//const express = require('express');
 /*
 
 require('dotenv').config();

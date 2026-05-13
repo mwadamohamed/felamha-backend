@@ -23,6 +23,11 @@ const placeSchema = new mongoose.Schema(
     description: {
       type: String,
     },
+    
+    openHours: {
+      type: String,
+      required: false,
+    },
     hasDiscounts: {
       type: Boolean,
       default: false,

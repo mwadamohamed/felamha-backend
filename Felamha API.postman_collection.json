@@ -88,7 +88,15 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": ""
+              "raw": "{{baseUrl}}/api/admin/places",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                "api",
+                "admin",
+                "places"
+              ]
             }
           },
           "response": []
@@ -97,7 +105,22 @@
           "name": "add new place",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n  \"name\": \"Khan El Khalili\",\r\n  \"category\": \"landmark\",\r\n  \"location\": \"El Hussein, Cairo\",\r\n  \"description\": \"Historic market and famous tourist attraction in Cairo\",\r\n  \"openHours\": \"10:00 AM - 12:00 AM\",\r\n  \"images\": [\r\n    \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT2wo8AACxBtVeJVX7ILfcru8WZXoub-UIvSg&s\",\r\n    \"https://dynamic-media-cdn.tripadvisor.com/media/photo-o/31/d7/b3/6f/caption.jpg?w=1200&h=-1&s=1\",\r\n    \"https://egypttourmakers.com/wp-content/uploads/2023/07/khan-alkhalili-bazaar-in-egypt.jpg\",\r\n    \"https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmDem0zrb-l31W-Dt4K0gMN6ehkPBuq5GLtA&s\"\r\n  ],\r\n  \"hasDiscounts\": true\r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "{{baseUrl}}/api/admin/places",
               "host": [
@@ -116,7 +139,13 @@
           "name": "edit place",
           "request": {
             "method": "PUT",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/places/:placeId",
               "host": [
@@ -142,7 +171,13 @@
           "name": "delete place",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": " Bearer {{token}}",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/places/:placeId",
               "host": [
@@ -208,7 +243,7 @@
             "method": "GET",
             "header": [],
             "url": {
-              "raw": "{{baseUrl}}/api/admin/users",
+              "raw": "{{baseUrl}}/api/admin/users?Authorization=Bearer {{token}}",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -216,6 +251,13 @@
                 "api",
                 "admin",
                 "users"
+              ],
+              "query": [
+                {
+                  "key": "Authorization",
+                  "value": "Bearer {{token}}",
+                  "type": "text"
+                }
               ]
             }
           },
@@ -225,9 +267,15 @@
           "name": "Get All Reviews",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
             "url": {
-              "raw": "{{baseUrl}}/api/admin/reviews",
+              "raw": "{{baseUrl}}/api/admin/reviews?=",
               "host": [
                 "{{baseUrl}}"
               ],
@@ -235,6 +283,12 @@
                 "api",
                 "admin",
                 "reviews"
+              ],
+              "query": [
+                {
+                  "key": "",
+                  "value": ""
+                }
               ]
             }
           },
@@ -244,7 +298,13 @@
           "name": "Delete Review",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/reviews/:reviewId",
               "host": [
@@ -270,15 +330,20 @@
           "name": "Get All Discounts",
           "request": {
             "method": "GET",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
             "url": {
-              "raw": "{{baseUrl}}/api/admin/discounts",
+              "raw": "{{baseUrl}}/api/discounts",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "api",
-                "admin",
                 "discounts"
               ]
             }
@@ -289,7 +354,22 @@
           "name": "Add Discount",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
               "raw": "{{baseUrl}}/api/admin/discounts",
               "host": [
@@ -308,7 +388,13 @@
           "name": "Delete Discount",
           "request": {
             "method": "DELETE",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{token}}",
+                "type": "text"
+              }
+            ],
             "url": {
               "raw": "{{baseUrl}}/api/admin/discounts/:discountId",
               "host": [
@@ -426,15 +512,37 @@
           "name": "Add Review",
           "request": {
             "method": "POST",
-            "header": [],
+            "header": [
+              {
+                "key": "Authorization",
+                "value": "Bearer {{userToken}}",
+                "type": "text"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\r\n    \r\n}",
+              "options": {
+                "raw": {
+                  "language": "json"
+                }
+              }
+            },
             "url": {
-              "raw": "{{baseUrl}}/api/reviews",
+              "raw": "{{baseUrl}}/api/reviews/:placeId",
               "host": [
                 "{{baseUrl}}"
               ],
               "path": [
                 "api",
-                "reviews"
+                "reviews",
+                ":placeId"
+              ],
+              "variable": [
+                {
+                  "key": "placeId",
+                  "value": ""
+                }
               ]
             }
           },

@@ -23,7 +23,7 @@ const addPlace = async (req, res) => {
 // ================== EDIT PLACE ==================
 const editPlace = async (req, res) => {
     try {
-        const place = await Place.findByIdAndUpdate(req.params.id, req.body, { new: true });
+        const place = await Place.findByIdAndUpdate(req.params.placeId, req.body, { new: true });
         if (!place) return res.status(404).json({ message: 'Place not found' });
         res.json(place);
     } catch (err) {
@@ -34,7 +34,7 @@ const editPlace = async (req, res) => {
 // ================== DELETE PLACE ==================
 const deletePlace = async (req, res) => {
     try {
-        const place = await Place.findByIdAndDelete(req.params.id);
+        const place = await Place.findByIdAndDelete(req.params.placeId);
         if (!place) return res.status(404).json({ message: 'Place not found' });
         res.json({ message: 'Place deleted successfully' });
     } catch (err) {
