@@ -24,4 +24,4 @@ adminSchema.methods.comparePassword = async function (password) {
   return await bcrypt.compare(password, this.password);
 };
 
-module.exports = mongoose.model("Admin", adminSchema);
+module.exports = mongoose.model("Admin", adminSchema);//collection name single and capital

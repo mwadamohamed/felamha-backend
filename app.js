@@ -8,6 +8,9 @@ const reviewRoutes    = require('./routes/reviewRoutes');
 const discountRoutes  = require('./routes/discountRoutes');
 const adminRoutes     = require('./routes/adminRoutes');
 const adminCrudRoutes = require('./routes/adminCrudRoutes');
+
+
+
 app.use(express.json());
 
 app.use('/api/users',     userRoutes);
